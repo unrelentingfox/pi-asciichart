@@ -38,7 +38,7 @@ export default function piAsciichartExtension(pi: ExtensionAPI): void {
 						description: "Numeric values in display order",
 					}),
 				}),
-				{ minItems: 1 },
+				{ minItems: 1, maxItems: 12 },
 			),
 			height: Type.Optional(Type.Integer({ minimum: 1, description: "Plot height in rows" })),
 			min: Type.Optional(Type.Number({ description: "Fixed lower y-axis bound" })),

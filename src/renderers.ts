@@ -38,6 +38,8 @@ type Renderer = (spec: ChartSpec) => string;
 
 const LABEL_WIDTH = 11;
 
+const MAX_SERIES = 12;
+
 const renderers: Record<ChartType, Renderer> = {
 	line: renderLineChart,
 };
@@ -87,6 +89,7 @@ function renderLegend(series: ChartSeries[]): string {
 
 function validateSpec(spec: ChartSpec): void {
 	if (spec.series.length === 0) throw new Error("At least one series is required");
+	if (spec.series.length > MAX_SERIES) throw new Error(`At most ${MAX_SERIES} series are allowed`);
 	for (const [index, series] of spec.series.entries()) validateSeries(series, index);
 	if (spec.height !== undefined && (!Number.isInteger(spec.height) || spec.height < 1)) {
 		throw new Error("Height must be a positive integer");

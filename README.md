@@ -53,11 +53,10 @@ Non-negative integer values are accepted. Missing or invalid values use 1000 ms.
 
 ## Limits
 
+- 12 series maximum (one distinct color/symbol pair each)
 - 11-character y-axis label field (overflows switch to scientific notation)
 
-Series count, values per series, and chart height are unconstrained. Colors and
-legend symbols cycle through 12 distinct pairs when more than 12 series are
-plotted.
+Values per series and chart height are unconstrained.
 
 ## Example
 
