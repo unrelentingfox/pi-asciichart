@@ -1,6 +1,6 @@
 {
   "name": "pi-asciichart",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Pi extension that renders line charts in the tool-result UI using asciichart",
   "license": "MIT",
   "author": "Dustin Fox",
