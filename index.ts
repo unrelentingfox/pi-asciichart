@@ -35,13 +35,12 @@ export default function piAsciichartExtension(pi: ExtensionAPI): void {
 					name: Type.Optional(Type.String({ maxLength: 80, description: "Series name shown in the legend" })),
 					values: Type.Array(Type.Number(), {
 						minItems: 1,
-						maxItems: 1_000,
 						description: "Numeric values in display order",
 					}),
 				}),
-				{ minItems: 1, maxItems: 12 },
+				{ minItems: 1 },
 			),
-			height: Type.Optional(Type.Integer({ minimum: 1, maximum: 40, description: "Plot height in rows" })),
+			height: Type.Optional(Type.Integer({ minimum: 1, description: "Plot height in rows" })),
 			min: Type.Optional(Type.Number({ description: "Fixed lower y-axis bound" })),
 			max: Type.Optional(Type.Number({ description: "Fixed upper y-axis bound" })),
 			precision: Type.Optional(

@@ -36,8 +36,6 @@ export interface ChartSpec {
 
 type Renderer = (spec: ChartSpec) => string;
 
-const MAX_SERIES = 12;
-const MAX_VALUES_PER_SERIES = 1_000;
 const LABEL_WIDTH = 11;
 
 const renderers: Record<ChartType, Renderer> = {
@@ -89,7 +87,6 @@ function renderLegend(series: ChartSeries[]): string {
 
 function validateSpec(spec: ChartSpec): void {
 	if (spec.series.length === 0) throw new Error("At least one series is required");
-	if (spec.series.length > MAX_SERIES) throw new Error(`At most ${MAX_SERIES} series are allowed`);
 	for (const [index, series] of spec.series.entries()) validateSeries(series, index);
 	if (spec.height !== undefined && (!Number.isInteger(spec.height) || spec.height < 1)) {
 		throw new Error("Height must be a positive integer");
@@ -104,9 +101,6 @@ function validateSpec(spec: ChartSpec): void {
 
 function validateSeries(series: ChartSeries, index: number): void {
 	if (series.values.length === 0) throw new Error(`Series ${index + 1} is empty`);
-	if (series.values.length > MAX_VALUES_PER_SERIES) {
-		throw new Error(`Series ${index + 1} exceeds ${MAX_VALUES_PER_SERIES} values`);
-	}
 	if (series.values.some((value) => !Number.isFinite(value))) {
 		throw new Error(`Series ${index + 1} contains a non-finite value`);
 	}

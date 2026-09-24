@@ -78,16 +78,13 @@ test("rejects invalid bounds", () => {
 	);
 });
 
-test("rejects oversized series", () => {
-	assert.throws(
-		() => renderChart({ type: "line", series: [{ values: Array(1_001).fill(1) }] }),
-		/exceeds 1000 values/,
-	);
-});
+test("cycles colors for more than 12 series", () => {
+	const chart = renderChart({
+		type: "line",
+		series: Array.from({ length: 15 }, (_, i) => ({ name: `s${i}`, values: [i, i + 1] })),
+		height: 4,
+	});
+	const stripped = stripAnsi(chart);
 
-test("rejects too many series", () => {
-	assert.throws(
-		() => renderChart({ type: "line", series: Array.from({ length: 13 }, () => ({ values: [1] })) }),
-		/At most 12 series/,
-	);
+	assert.match(stripped, /s14/);
 });
