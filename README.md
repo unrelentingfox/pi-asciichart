@@ -1,5 +1,12 @@
 # pi-asciichart
 
+[![npm version](https://img.shields.io/npm/v/pi-asciichart)](https://www.npmjs.com/package/pi-asciichart)
+[![npm downloads](https://img.shields.io/npm/dm/pi-asciichart)](https://www.npmjs.com/package/pi-asciichart)
+[![CI](https://img.shields.io/github/actions/workflow/status/unrelentingfox/pi-asciichart/ci.yml?branch=mainline&label=CI)](https://github.com/unrelentingfox/pi-asciichart/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/unrelentingfox/pi-asciichart/graph/badge.svg)](https://app.codecov.io/gh/unrelentingfox/pi-asciichart)
+[![Node.js](https://img.shields.io/node/v/pi-asciichart)](https://www.npmjs.com/package/pi-asciichart)
+[![License](https://img.shields.io/github/license/unrelentingfox/pi-asciichart)](https://github.com/unrelentingfox/pi-asciichart/blob/mainline/LICENSE)
+
 Pi extension that registers `render_chart`, a tool that displays plain-text line
 charts in the tool-result UI using
 [asciichart](https://github.com/kroitor/asciichart).
