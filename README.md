@@ -65,17 +65,49 @@ Non-negative integer values are accepted. Missing or invalid values use 1000 ms.
 
 Values per series and chart height are unconstrained.
 
-## Example
+## Examples
+
+Single series:
+
+```text
+      18.00 ┤        ╭
+      15.33 ┤      ╭╮│
+      12.67 ┤    ╭╮│││
+      10.00 ┤    │││╰╯
+       7.33 ┤╭╮╭╮│╰╯
+       4.67 ┤│││╰╯
+       2.00 ┼╯╰╯
+```
+
+Multi-series with legend:
+
+```text
+Weekly signups
+● organic  ○ paid
+        110 ┤          ╭
+        100 ┤        ╭╮│
+         90 ┤        │╰╯
+         80 ┤      ╭─╯
+         70 ┤    ╭─╯
+         60 ┤  ╭─╯
+         50 ┼──╯
+         40 ┤         ╭╮
+         30 ┤     ╭─╮╭╯╰
+         20 ┤╭╮╭──╯ ╰╯
+         10 ┼╯╰╯
+```
+
+Tool input:
 
 ```json
 {
   "type": "line",
-  "caption": "Weekly requests",
+  "caption": "Weekly signups",
   "series": [
-    { "name": "success", "values": [12, 18, 15, 24] },
-    { "name": "failure", "values": [3, 2, 5, 1] }
+    { "name": "organic", "values": [45, 52, 48, 61, 58, 73, 69, 82, 77, 95, 88, 110] },
+    { "name": "paid", "values": [12, 15, 10, 18, 22, 19, 25, 28, 20, 32, 35, 30] }
   ],
-  "height": 8,
+  "height": 10,
   "precision": 0
 }
 ```
